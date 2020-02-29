@@ -1,0 +1,125 @@
+# run 1 : continue equilibrium in gamma, detect Hopf bifurcations
+r1=run(e='tts',c='tts',DS=-0.001,DSMAX=0.005,NMX=3000,NPR=5)
+# 3 Hopf bifurcation detected
+save(r1,'ssgamma')
+cl
+!rm -f d.*
+
+
+# run 2 : continue branch of limit cycles from the right Hopf bifurcation
+r2=run(r1('HB1'),IPS=2,ICP=['GAMMA','T'],NTST=400,ILP=0,ISP=0,NMX=2000)
+save(r2,'hbr1')
+cl
+!rm -f d.*
+r2=run(r1('HB1'),IPS=2,ICP=['GAMMA','T'],NTST=400,ILP=0,ISP=0,NMX=1000,NPR=2,DS=0.001,DSMAX=0.05))
+save(r2,'hbr1long')
+cl
+!rm -f d.*
+
+# run3 : continue branch of limit cycles from the left Hopf bifurcation
+r3=run(r1('HB2'),IPS=2,ICP=['GAMMA','T'],NTST=400,ILP=0,ISP=0,NMX=2000)
+save(r3,'hbr2')
+cl
+!rm -f d.*
+
+# run n : continue branch of limit cycles hbr1 further
+run(e='tts',c='tts',s='hbr1',IRS=503,IPS=2,ICP=['GAMMA','T'],NTST=400,ILP=0,ISP=0,NMX=5000,NPR=10,DSMAX=0.5)
+sv('hbr1bis')
+cl
+!rm -f d.*
+run(e='tts',c='tts',s='hbr1bis',IRS=1003,IPS=2,ICP=['GAMMA','T'],NTST=400,ILP=0,ISP=0,NMX=5000,NPR=10,DSMAX=0.5)
+sv('hbr1ter')
+cl
+!rm -f d.*
+run(e='tts',c='tts',s='hbr1ter',IRS=1503,IPS=2,ICP=['GAMMA','T'],NTST=400,ILP=0,ISP=0,NMX=5000,NPR=10,DSMAX=0.5)
+sv('hbr1quat')
+cl
+!rm -f d.*
+run(e='tts',c='tts',s='hbr1quat',IRS=2003,IPS=2,ICP=['GAMMA','T'],NTST=400,ILP=0,ISP=0,NMX=5000,NPR=10,DSMAX=0.5)
+sv('hbr1cinq')
+cl
+!rm -f d.*
+run(e='tts',c='tts',s='hbr1cinq',IRS=2503,IPS=2,ICP=['GAMMA','T'],NTST=400,ILP=0,ISP=0,NMX=5000,NPR=10,DSMAX=0.5)
+sv('hbr1six')
+cl
+!rm -f d.*
+run(e='tts',c='tts',s='hbr1six',IRS=3003,IPS=2,ICP=['GAMMA','T'],ILP=0,ISP=0,NMX=5000,NPR=10,NTST=800)
+sv('hbr1sept')
+cl
+!rm -f d.*
+run(e='tts',c='tts',s='hbr1sept',IRS=3503,IPS=2,ICP=['GAMMA','T'],ILP=0,ISP=0,NMX=5000,NPR=10,NTST=800,DSMAX=0.5)
+sv('hbr1huit')
+cl
+!rm -f d.*
+run(e='tts',c='tts',s='hbr1huit',IRS=4003,IPS=2,ICP=['GAMMA','T'],ILP=0,ISP=0,NMX=5000,NPR=10,NTST=800,DSMAX=0.5)
+sv('hbr1neuf')
+cl
+!rm -f d.*
+run(e='tts',c='tts',s='hbr1neuf',IRS=4503,IPS=2,ICP=['GAMMA','T'],ILP=0,ISP=0,NMX=5000,NPR=10,NTST=800,DSMAX=0.5)
+sv('hbr1dix')
+cl
+!rm -f d.*
+run(e='tts',c='tts',s='hbr1dix',IRS=5003,IPS=2,ICP=['GAMMA','T'],ILP=0,ISP=0,NMX=5000,NPR=10,NTST=800,DSMAX=0.5)
+sv('hbr1onze')
+cl
+!rm -f d.*
+run(e='tts',c='tts',s='hbr1onze',IRS=5503,IPS=2,ICP=['GAMMA','T'],ILP=0,ISP=0,NMX=5000,NPR=10,NTST=800,DSMAX=0.5)
+sv('hbr1douze')
+cl
+!rm -f d.*
+run(e='tts',c='tts',s='hbr1douze',IRS=6003,IPS=2,ICP=['GAMMA','T'],ILP=0,ISP=0,NMX=5000,NPR=10,NTST=800,DSMAX=0.5)
+sv('hbr1treize')
+cl
+!rm -f d.*
+run(e='tts',c='tts',s='hbr1treize',IRS=6503,IPS=2,ICP=['GAMMA','T'],ILP=0,ISP=0,NMX=5000,NPR=10,NTST=800,DSMAX=0.5)
+sv('hbr1quatorze')
+cl
+!rm -f d.*
+run(e='tts',c='tts',s='hbr1quatorze',IRS=7003,IPS=2,ICP=['GAMMA','T'],ILP=0,ISP=0,NMX=5000,NPR=10,NTST=800,DSMAX=0.5)
+sv('hbr1quinze')
+cl
+!rm -f d.*
+run(e='tts',c='tts',s='hbr1quinze',IRS=7503,IPS=2,ICP=['GAMMA','T'],ILP=0,ISP=0,NMX=5000,NPR=10,NTST=800,DSMAX=0.5)
+sv('hbr1seize')
+cl
+!rm -f d.*
+run(e='tts',c='tts',s='hbr1seize',IRS=8003,IPS=2,ICP=['GAMMA','T'],ILP=0,ISP=0,NMX=5000,NPR=10,NTST=800,DSMAX=0.5)
+sv('hbr1dixsept')
+cl
+!rm -f d.*
+run(e='tts',c='tts',s='hbr1dixsept',IRS=8503,IPS=2,ICP=['GAMMA','T'],ILP=0,ISP=0,NMX=5000,NPR=10,NTST=800,DSMAX=0.5)
+sv('hbr1dixhuit')
+cl
+!rm -f d.*
+run(e='tts',c='tts',s='hbr1dixhuit',IRS=9003,IPS=2,ICP=['GAMMA','T'],ILP=0,ISP=0,NMX=5000,NPR=10,NTST=800,DSMAX=0.5)
+sv('hbr1dixneuf')
+cl
+!rm -f d.*
+run(e='tts',c='tts',s='hbr1dixneuf',IRS=9503,IPS=2,ICP=['GAMMA','T'],ILP=0,ISP=0,NMX=5000,NPR=10,NTST=800,DSMAX=0.5)
+sv('hbr1vingt')
+cl
+!rm -f d.*
+run(e='tts',c='tts',s='hbr1vingt',IRS=10003,IPS=2,ICP=['GAMMA','T'],ILP=0,ISP=0,NMX=5000,NPR=10,NTST=800,DSMAX=0.5)
+sv('hbr1vingtetun')
+cl
+!rm -f d.*
+run(e='tts',c='tts',s='hbr1vingtetun',IRS=10503,IPS=2,ICP=['GAMMA','T'],ILP=0,ISP=0,NMX=5000,NPR=10,NTST=800,DSMAX=0.5)
+sv('hbr1vingtdeux')
+cl
+!rm -f d.*
+run(e='tts',c='tts',s='hbr1vingtdeux',IRS=11003,IPS=2,ICP=['GAMMA','T'],ILP=0,ISP=0,NMX=5000,NPR=10,NTST=800,DSMAX=0.5)
+sv('hbr1vingttrois')
+cl
+!rm -f d.*
+run(e='tts',c='tts',s='hbr1vingttrois',IRS=11503,IPS=2,ICP=['GAMMA','T'],ILP=0,ISP=0,NMX=5000,NPR=10,NTST=800,DSMAX=0.5)
+sv('hbr1vingtquatre')
+cl
+!rm -f d.*
+run(e='tts',c='tts',s='hbr1vingtquatre',IRS=12003,IPS=2,ICP=['GAMMA','T'],ILP=0,ISP=0,NMX=5000,NPR=10,NTST=800,DSMAX=0.5)
+sv('hbr1vingtcinq')
+cl
+!rm -f d.*
+run(e='tts',c='tts',s='hbr1vingtcinq',IRS=12503,IPS=2,ICP=['GAMMA','T'],ILP=0,ISP=0,NMX=5000,NPR=10,NTST=800,DSMAX=0.5)
+sv('hbr1vingtsix')
+cl
+!rm -f d.*
